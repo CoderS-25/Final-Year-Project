@@ -1,0 +1,64 @@
+{
+  "best_epoch": 996,
+  "best_validation_bpp": 4.80627975247123,
+  "bit_depth": 16,
+  "checkpoint_criterion": "minimum validation BPP",
+  "dataset": "CHAOS",
+  "dataset_path": "C:\\Users\\user\\Documents\\Final Year Project\\chaos_processed_t2spir",
+  "device": "cuda",
+  "epochs": 1000,
+  "final_validation_bpp": 4.812498334321108,
+  "hidden_channels": 16,
+  "image_size": 64,
+  "learning_rate": 0.0005,
+  "loss": {
+    "endpoint_handling": "normalized_domain_minus1_plus1",
+    "log_probability_floor": 1e-12,
+    "mixture_components": 3,
+    "type": "discretized_mixture_logistic_nll_bpp"
+  },
+  "mixture_components": 3,
+  "normalization": "per_volume_minmax_to_-1_1",
+  "num_bins": 65536,
+  "optimizer": "Adam",
+  "output_directory": "C:\\Users\\user\\Documents\\Final Year Project\\experiments\\chaos_paper_16bit",
+  "random_seeds": {
+    "numpy": 0,
+    "python": 0,
+    "torch": 0,
+    "torch_cuda": 0
+  },
+  "run_name": "chaos_paper_16bit",
+  "scale_L": 8.0,
+  "scheduler": {
+    "gamma": 0.8,
+    "step_size": 50,
+    "type": "StepLR"
+  },
+  "steps_per_epoch": null,
+  "train_patient_ids": [
+    4,
+    6,
+    7,
+    9,
+    11,
+    12,
+    14,
+    16,
+    17,
+    18,
+    23,
+    24,
+    25,
+    26
+  ],
+  "update_stride": 5,
+  "validation_patient_ids": [
+    27,
+    28,
+    29,
+    30,
+    35,
+    40
+  ]
+}

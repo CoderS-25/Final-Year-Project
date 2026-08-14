@@ -1,0 +1,61 @@
+# ==========================================
+# Python
+# ==========================================
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# ==========================================
+# IDE
+# ==========================================
+.vscode/
+.idea/
+
+# ==========================================
+# Environment / secrets
+# ==========================================
+.env
+*.env
+
+# ==========================================
+# OS
+# ==========================================
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Python build files
+# ==========================================
+build/
+dist/
+*.egg-info/
+
+# ==========================================
+# Logs
+# ==========================================
+*.log
+
+# ==========================================
+# Large datasets
+# ==========================================
+CHAOS_Test_Sets/
+CHAOS_Test_Sets.zip
+chaos_processed_t2spir/
+
+# ==========================================
+# Local downloads / temporary files
+# ==========================================
+Downloads/
+
+# ==========================================
+# Large MATLAB debug/output files
+# ==========================================
+patient_27_python_bpp.mat
+patient_27_python_bpp_stagewise.mat
+patient_27_python_bpp_stagewise_tf32off.mat
+patient_27_python_bpp_stagewise_tf32off_paperloss.mat
+patient_27_matlab_debug.mat
+patient_27_matlab_debug_stagewise.mat

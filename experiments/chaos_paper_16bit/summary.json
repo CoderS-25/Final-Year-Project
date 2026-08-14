@@ -1,0 +1,8 @@
+{
+  "best_epoch": 996,
+  "best_validation_bpp": 4.80627975247123,
+  "best_weights": "C:\\Users\\user\\Documents\\Final Year Project\\experiments\\chaos_paper_16bit\\best_weights.mat",
+  "checkpoint_criterion": "minimum validation BPP",
+  "final_validation_bpp": 4.812498334321108,
+  "final_weights": "C:\\Users\\user\\Documents\\Final Year Project\\experiments\\chaos_paper_16bit\\final_weights.mat"
+}
