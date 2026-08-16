@@ -1,0 +1,34 @@
+# MATLAB/Octave
+*.mat
+*.asv
+*.m~
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Datasets and Media
+*.dcm
+*.nii
+*.nii.gz
+*.zip
+*.tar
+*.gz
+*.rar
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# Project Specific
+scratch/
+loaded_data/
+HENCE_Code/

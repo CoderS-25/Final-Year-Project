@@ -1,0 +1,19 @@
+{
+  "dataset": "CHAOS",
+  "bit_depth": 16,
+  "num_bins": 65536,
+  "scale_L": 8,
+  "mixture_components": 3,
+  "hidden_channels": 16,
+  "normalization": "per_volume_minmax_to_-1_1",
+  "optimizer": "Adam",
+  "learning_rate": 0.0005,
+  "scheduler": {
+    "type": "StepLR",
+    "step_size": 50,
+    "gamma": 0.8
+  },
+  "epochs": 1000,
+  "update_stride": 5,
+  "steps_per_epoch": null
+}
