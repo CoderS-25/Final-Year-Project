@@ -235,19 +235,13 @@ class ChaosMRIDataset(Dataset):
             )
 
         # ---------------------------------------------------------
-        # PER-VOLUME NORMALIZATION TO [-1, 1]
+        # GLOBAL NORMALIZATION TO [-1, 1] OVER FULL BIT DEPTH
         # ---------------------------------------------------------
         normed = []
+        max_val = (2 ** args.bit_depth) - 1.0  # 65535.0 for 16-bit
 
         for vol in self.volumes:
-            vmin = vol.min()
-            vmax = vol.max()
-
-            normalized = (
-                2.0 * (vol - vmin)
-                / max(vmax - vmin, 1e-6)
-                - 1.0
-            )
+            normalized = (2.0 * vol / max_val) - 1.0
 
             normed.append(normalized.astype(np.float32))
 

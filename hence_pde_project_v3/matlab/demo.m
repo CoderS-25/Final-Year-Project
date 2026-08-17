@@ -12,7 +12,7 @@ weights = initPDEWeights('best_trained_weights.mat');
 % 
 % 🎯 VALIDATION Patients (Unseen tests for the AI):
 % 27, 28, 29, 30, 35, 40
-patient_id = 30; 
+patient_id = 35; 
 fprintf('2. Loading real MRI data (Patient %d)...\n', patient_id);
 
 % Path to the real patient file

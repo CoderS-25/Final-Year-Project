@@ -46,14 +46,9 @@ function results = runMLAC(pde_mat_path, raw_volume_path, num_bits_pixel)
     fields   = fieldnames(raw_data);
     volume   = double(raw_data.(fields{1}));  % H x W x S
 
-    % Map normalized [-1,1] or [0,1] float to integer pixel values
-    v_min = min(volume(:));
-    v_max = max(volume(:));
-    
-    % [FIXED ALPHABET LOGIC] Evaluate raw pixels directly instead of stretching to 65536
-    volume_int = round(volume - v_min);
-    num_symbols = round(v_max - v_min + 1);
-    volume_int = uint16(max(0, min(num_symbols - 1, volume_int)));
+    % [FIXED ALPHABET LOGIC] Evaluate raw 16-bit pixels directly over the full 65536 alphabet
+    num_symbols = 65536;
+    volume_int = uint16(volume);
 
     % ---------------------------------------------------------------
     % 3. Encode + Decode each slice
