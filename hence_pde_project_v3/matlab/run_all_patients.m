@@ -34,12 +34,9 @@ for i = 1:length(patients_to_run)
     fields = fieldnames(data);
     volume = double(data.(fields{1}));
     
-    % Normalize to [-1, 1] to match the Python training normalization exactly:
-    %   normalized = 2 * (vol - vmin) / (vmax - vmin) - 1
-    % Do NOT use [0,1] — the model was trained on [-1,1] data.
-    v_min = min(volume(:));
-    v_max = max(volume(:));
-    volume = 2.0 * (volume - v_min) / max(v_max - v_min, 1e-9) - 1.0;
+    % Normalize to [-1, 1] using global 16-bit normalization (0 to 65535)
+    % This strictly matches the training data normalization in train_pde.py
+    volume = (2.0 * volume / 65535.0) - 1.0;
     
     % Define output path
     out_path = fullfile(output_dir, sprintf('patient_%d_pde_out.mat', pid));

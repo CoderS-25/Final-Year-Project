@@ -26,9 +26,10 @@ full_volume = data.(fields{1});
 middle_slice = round(size(full_volume, 3) / 2);
 volume = full_volume(:, :, middle_slice);
 
-% Normalize to 0-1 just to be safe
+% Normalize to [-1, 1] using global 16-bit normalization (0 to 65535)
+% This must match the training normalization exactly!
 volume = double(volume);
-volume = (volume - min(volume(:))) / (max(volume(:)) - min(volume(:)));
+volume = (2.0 * volume / 65535.0) - 1.0;
 
 % 3. Run the Neural PDE Pipeline!
 fprintf('3. Running Neural PDE...\n');
