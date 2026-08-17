@@ -35,10 +35,12 @@ function [pi_q, mu_q, log_s_q] = quantizeParameters(pi_in, mu_in, log_s_in, num_
 
     % --- Quantize mu (means, range [-1, 1]) ---
     % Map [-1,1] -> [0, levels], quantize, map back
+    % Paper explicitly states mu is quantized to full bit-depth (N=16)
+    levels_mu = 65535;
     mu_shifted = (mu_in + 1) / 2;  % [0, 1]
-    mu_int = round(mu_shifted * levels);
-    mu_int = max(0, min(levels, mu_int));
-    mu_q = (mu_int / levels) * 2 - 1;  % back to [-1, 1]
+    mu_int = round(mu_shifted * levels_mu);
+    mu_int = max(0, min(levels_mu, mu_int));
+    mu_q = (mu_int / levels_mu) * 2 - 1;  % back to [-1, 1]
 
     % --- Quantize log_s (log-scales, range [-7, 0] typically) ---
     % Clamp to a safe range first (PDE module already clamps >= -7)

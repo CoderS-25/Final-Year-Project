@@ -80,7 +80,10 @@ def mixture_logistic_bpp_loss(x, pi, mu, log_s, num_bins, scale_factor_L):
         scalar bits/pixel (mean NLL in nats -> bits)
     """
     x = x.expand_as(mu)
-    half_bin = (scale_factor_L / (num_bins - 1))
+    
+    # [FIXED BIN WIDTH] The training bin width should just be 1 / (num_bins - 1)
+    # The scale_factor_L (BPTT sequence length) should not multiply the bin width!
+    half_bin = 1.0 / (num_bins - 1)
     centered = x - mu
     inv_s = torch.exp(-log_s)
 

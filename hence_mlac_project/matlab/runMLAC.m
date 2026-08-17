@@ -49,7 +49,10 @@ function results = runMLAC(pde_mat_path, raw_volume_path, num_bits_pixel)
     % Map normalized [-1,1] or [0,1] float to integer pixel values
     v_min = min(volume(:));
     v_max = max(volume(:));
-    volume_int = round((volume - v_min) ./ max(v_max - v_min, 1e-9) * (num_symbols - 1));
+    
+    % [FIXED ALPHABET LOGIC] Evaluate raw pixels directly instead of stretching to 65536
+    volume_int = round(volume - v_min);
+    num_symbols = round(v_max - v_min + 1);
     volume_int = uint16(max(0, min(num_symbols - 1, volume_int)));
 
     % ---------------------------------------------------------------
