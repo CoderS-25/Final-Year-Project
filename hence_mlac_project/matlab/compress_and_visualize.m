@@ -17,7 +17,7 @@ weights = initPDEWeights(fullfile('..', '..', 'hence_pde_project_v3', 'matlab', 
 
 patient_id = 35; % You can change this to any patient ID (e.g., 27, 28, 29)
 fprintf('Loading MRI Volume for Patient %d...\n', patient_id);
-data_path = fullfile('..', '..', 'chaos_processed_t2spir', sprintf('%d_norm.mat', patient_id));
+data_path = fullfile('..', '..', 'chaos_processed_t2spir', sprintf('%d_raw.mat', patient_id));
 data = load(data_path);
 fields = fieldnames(data);
 volume = double(data.(fields{1}));
