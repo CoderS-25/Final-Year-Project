@@ -50,7 +50,7 @@ log_s_slice = log_s_vol(:, :, :, middle_slice_idx);
 fprintf('Decompressing the volume...\n');
 H = size(slice_to_compress, 1);
 W = size(slice_to_compress, 2);
-decoded_slice = arithmeticDecode(bitstream, pi_slice, mu_slice, log_s_slice, num_symbols, H, W, exceptional_pixels);
+decoded_slice = arithmeticDecode(bitstream, pi_slice, mu_slice, log_s_slice, H, W, exceptional_pixels, num_symbols);
 
 % Verify Lossless
 is_lossless = isequal(slice_to_compress, decoded_slice);
