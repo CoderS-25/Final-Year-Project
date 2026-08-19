@@ -44,7 +44,7 @@ function [pi_q, mu_q, log_s_q] = quantizeParameters(pi_in, mu_in, log_s_in, num_
 
     % --- Quantize log_s (log-scales, range [-7, 0] typically) ---
     % Clamp to a safe range first (PDE module already clamps >= -7)
-    LOG_S_MIN = -7.0;
+    LOG_S_MIN = -14.0;
     LOG_S_MAX =  2.0;
     log_s_clamped = max(LOG_S_MIN, min(LOG_S_MAX, log_s_in));
     % Map to [0, levels], quantize, map back

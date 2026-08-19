@@ -32,7 +32,7 @@ M = 16   # hidden/auxiliary feature channels (paper: "kernel number of 16")
 K = 3    # mixture components (paper: Section III, "we set K = 3")
 MASKED_CONV_KERNEL = 7   # paper: "masked convolution layer with a kernel size of 7"
 DSC_KERNEL = 5            # paper: "kernel size of depth separable convolution to 5"
-MIN_LOG_SCALE = -7.0
+MIN_LOG_SCALE = -14.0
 PI_CLIP_EPS = 1e-6
 
 
