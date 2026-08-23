@@ -75,7 +75,10 @@ function [bitstream, exceptional_pixels] = arithmeticEncode(pixels, pi_vol, mu_v
     sig_high = 1 ./ (1 + exp(-arg_high));
     cdf_high_f = sum(pi_q_mat .* sig_high, 2);
     
-    % Edge cases
+    % Edge cases: only the absolute boundary symbols get the infinite-tail treatment.
+    % Symbol 0 is the only symbol with no left neighbour, so its cdf_low = CDF(-inf) = 0.
+    % Symbol 65535 is the only symbol with no right neighbour, so its cdf_high = CDF(+inf) = 1.
+    % Applying this to wider ranges (e.g., 0-32) creates overlapping intervals and breaks losslessness.
     idx_0 = (pixels_flat == 0);
     cdf_low_f(idx_0) = 0.0;
     idx_max = (pixels_flat == num_symbols - 1);

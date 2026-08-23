@@ -33,7 +33,7 @@ for k = 1:numel(patient_ids)
     pid = patient_ids(k);
 
     pde_path = fullfile(pde_dir, sprintf('patient_%d_pde_out.mat', pid));
-    raw_path = fullfile(raw_dir,  sprintf('%d_norm.mat', pid));
+    raw_path = fullfile(raw_dir,  sprintf('%d_raw.mat', pid));
 
     if ~exist(pde_path, 'file')
         fprintf('%-10d  SKIPPED (PDE output not found: %s)\n', pid, pde_path);

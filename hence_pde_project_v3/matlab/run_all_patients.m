@@ -24,7 +24,7 @@ for i = 1:length(patients_to_run)
     fprintf('Processing Patient %d...\n', pid);
     
     % Load volume
-    in_path = fullfile(data_dir, sprintf('%d_norm.mat', pid));
+    in_path = fullfile(data_dir, sprintf('%d_raw.mat', pid));
     if ~exist(in_path, 'file')
         warning('Patient %d not found at %s. Skipping...', pid, in_path);
         continue;

@@ -142,6 +142,7 @@ function pixels_out = arithmeticDecode(bitstream, pi_vol, mu_vol, log_s_vol, H, 
         low_boundary  = ((sym - 0.5) / (num_symbols - 1)) * 2 - 1;
         high_boundary = ((sym + 0.5) / (num_symbols - 1)) * 2 - 1;
         
+        % Edge cases: only absolute boundary symbols get infinite-tail treatment (must match encoder exactly)
         if sym == 0
             cdf_low_f = 0.0;
         else
